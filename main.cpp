@@ -23,7 +23,18 @@ struct Palet {
 Palet warna;
 
 // ********** FUNCTION **********
-
+void segitiga(float angle, float l, float t, float posX, float posY) { // TESTING
+	l = l / 2;
+	glPushMatrix();
+	glTranslatef(posX, posY, 0.0f);
+	glRotatef(angle, 0.0f, 0.0f, 1.0f);
+	glBegin(GL_TRIANGLES);
+	glVertex2f(-l, 0.);
+	glVertex2f(l, 0.);
+	glVertex2f(0., t);
+	glEnd();
+	glPopMatrix();
+}
 
 
 
@@ -33,7 +44,7 @@ void render(void) {
 	glClear(GL_COLOR_BUFFER_BIT); 
     // CODE BELOW
     warna.merah();
-	segitiga(0, 450, 300, 0.0, 0.0);
+	segitiga(0, 450, 300, 0.0, 0.0); // TESTING
 
 
 	glFlush();
