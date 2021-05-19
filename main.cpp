@@ -29,6 +29,9 @@ struct Palet {
 	void abuTua() {
 		rgb(88, 89, 91);
 	}
+	void abuMuda() {
+		rgb(155, 142, 133);
+	}
 	void pink() {
 		rgb(242, 70, 128);
 	}
@@ -118,6 +121,14 @@ void render(void) {
 	glVertex2f(400, 300);
 	glVertex2f(-400, 300);
 	glEnd();
+
+	// GUNUNG KIRI BELAKANG
+	warna.abuMuda();
+	segitiga(0, 500, 120, -350, -80);
+
+	// GUNUNG KANAN BELAKANG
+	warna.abuMuda();
+	segitiga(0, 500, 130, 350, -80);
 
 	// GUNUNG KIRI
 	warna.abuTua();
