@@ -29,6 +29,12 @@ struct Palet {
 	void abuTua() {
 		rgb(88, 89, 91);
 	}
+	void pink() {
+		rgb(242, 70, 128);
+	}
+	void orange() {
+		rgb(248, 168, 51);
+	}
 
 };
 
@@ -103,6 +109,16 @@ void pohon(float scale, float posX, float posY) {
 void render(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	// LANGIT ATAS
+	glBegin(GL_QUADS);
+	warna.orange();
+	glVertex2f(-400, 200);
+	glVertex2f(400, 200);
+	warna.pink();
+	glVertex2f(400, 300);
+	glVertex2f(-400, 300);
+	glEnd();
+
 	// GUNUNG KIRI
 	warna.abuTua();
 	segitiga(0, 420, 190, -400, -100);
@@ -110,7 +126,7 @@ void render(void) {
 	// GUNUNG KANAN
 	warna.abuTua();
 	segitiga(0, 420, 200, 400, -100);
-	
+
 	// MATAHARI
 	warna.sinarMatahari1();
 	lingkaran(210, 0, -20);
@@ -151,7 +167,7 @@ void render(void) {
 	segitiga(0, 20, 40, 95, -130);
 	segitiga(0, 20, 40, 70, -150);
 	segitiga(0, 20, 40, 40, -165);
-	
+
 	glFlush();
 }
 
