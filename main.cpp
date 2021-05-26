@@ -43,6 +43,9 @@ struct Palet {
 	void putih() {
 		rgb(255, 255, 255);
 	}
+	void bintang() {
+		rgb(255, 248, 221);
+	}
 };
 
 Palet warna;
@@ -90,6 +93,7 @@ void lingkaran(float radius, float xPos, float yPos) {
 	glPopMatrix();
 }
 
+
 void pohon(float scale, float xPos, float yPos) {
 	glPushMatrix();
 	glTranslatef(xPos, yPos, 0.0);
@@ -112,7 +116,6 @@ void pohon(float scale, float xPos, float yPos) {
 	glPopMatrix();
 }
 
-
 void render(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
 
@@ -125,6 +128,12 @@ void render(void) {
 	glVertex2f(400, 300);
 	glVertex2f(-400, 300);
 	glEnd();
+
+	// BINTANG
+	warna.bintang();
+	for (int i = -20; i <= 20; i++) {
+		lingkaran(2, i * 20, (rand() % 100 + 1) + 200);
+	}
 
 	// GUNUNG KIRI BELAKANG
 	warna.abuMuda();
@@ -253,7 +262,7 @@ int main(int argc, char* argv[]) {
 	glutInitWindowSize(800, 600);
 	glutInitWindowPosition(50, 50);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_SINGLE | GLUT_RGBA);
-	glutCreateWindow("Sunset Art");
+	glutCreateWindow("Pemandangan Sunset");
 	gluOrtho2D(-400., 400., -300., 300.);
 	glutDisplayFunc(render);
 	initGL();
